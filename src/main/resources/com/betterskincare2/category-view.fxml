@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.CategoryController">
+    <children>
+        <Text fill="#f8c794" layoutX="27.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="188.1357421875">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="#f8c794" layoutX="27.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" wrappingWidth="188.1357421875">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="#f8c794" layoutX="27.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="188.1357421875">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="#f8c794" layoutX="27.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="188.1357421875">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fill="#f8c794" layoutX="27.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Characteristics" wrappingWidth="188.1357421875">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="#d8ae7e" layoutX="27.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select your preferences" wrappingWidth="531.71875">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Text>
+        <Button fx:id="search" layoutX="498.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToProduct" text="Search" textFill="#d8ae7e">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <ComboBox layoutX="319.0" layoutY="79.0" prefHeight="25.0" prefWidth="204.0" />
+        <ComboBox layoutX="319.0" layoutY="131.0" prefHeight="25.0" prefWidth="204.0" />
+        <ComboBox layoutX="319.0" layoutY="188.0" prefHeight="25.0" prefWidth="204.0" />
+        <ComboBox layoutX="319.0" layoutY="240.0" prefHeight="25.0" prefWidth="204.0" />
+        <ComboBox layoutX="319.0" layoutY="295.0" prefHeight="25.0" prefWidth="204.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.MainController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="68.0" prefWidth="554.0">
+                    <children>
+                        <ImageView fitHeight="55.0" fitWidth="56.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@icon/skincare2.png" />
+                            </image>
+                        </ImageView>
+                        <Text fill="#f8c794" layoutX="77.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Better Skincare" wrappingWidth="291.9830722808838">
+                            <font>
+                                <Font name="System Bold" size="36.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <Text fill="#d8ae7e" layoutX="33.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A better choice for finding suitable products for your skin !">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <TextField layoutX="59.0" layoutY="174.0" prefHeight="42.0" prefWidth="393.0" text="Type name of product">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </TextField>
+                <Text fill="#d8ae7e" layoutX="217.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an option:">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Text>
+                <Button layoutX="59.0" layoutY="227.0" mnemonicParsing="false" onAction="#switchToCategory" text="Search by categories" textFill="#f8c794">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            <Button layoutX="460.0" layoutY="174.0" mnemonicParsing="false" onAction="#switchToProduct" prefHeight="44.0" prefWidth="65.0" text="Search" textFill="#f8c794">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.ProductController">
+    <children>
+        <TableView fx:id="tableChart" layoutY="-6.0" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="Label" />
+                <TableColumn prefWidth="75.0" text="Brand" />
+                <TableColumn prefWidth="75.0" text="Name" />
+                <TableColumn prefWidth="75.0" text="Price" />
+                <TableColumn prefWidth="75.0" text="Rank" />
+                <TableColumn prefWidth="224.0" text="Ingredients" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
