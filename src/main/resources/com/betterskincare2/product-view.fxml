@@ -3,19 +3,25 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.ProductController">
+<AnchorPane prefHeight="400.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.ProductController">
     <children>
-        <TableView fx:id="tableChart" layoutY="-6.0" prefHeight="400.0" prefWidth="600.0">
+        <TableView fx:id="tableChart" layoutY="41.0" prefHeight="553.0" prefWidth="1080.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Label" />
-                <TableColumn prefWidth="75.0" text="Brand" />
-                <TableColumn prefWidth="75.0" text="Name" />
-                <TableColumn prefWidth="75.0" text="Price" />
-                <TableColumn prefWidth="75.0" text="Rank" />
-                <TableColumn prefWidth="224.0" text="Ingredients" />
+                <TableColumn fx:id="label" prefWidth="154.0" text="Label" />
+                <TableColumn fx:id="brand" prefWidth="155.0" text="Brand" />
+                <TableColumn fx:id="name" prefWidth="157.0" text="Name" />
+                <TableColumn fx:id="price" minWidth="0.0" prefWidth="85.0" text="Price" />
+                <TableColumn fx:id="rank" minWidth="0.0" prefWidth="98.0" text="Rank" />
+                <TableColumn fx:id="ingredients" prefWidth="430.0" text="Ingredients" />
             </columns>
         </TableView>
+      <Text fill="#d8ae7e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are the preferable products for you!" wrappingWidth="615.939453125">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

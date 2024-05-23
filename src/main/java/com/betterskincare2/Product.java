@@ -6,19 +6,19 @@ public class Product {
     private String label;
     private String brand;
     private String name;
-    private int price;
+    private Integer price;
     private double rank;
-    private ArrayList<String> ingredient;
+    private String ingredients;
 //    private int combination;
 //    private int dry;
 //    private int normal;
 //    private int oily;
 //    private int sensitive;
-    public Product(String label, String brand, String name, ArrayList<String> ingredient, int price, double rank) {
+    public Product(String label, String brand, String name, int price, double rank, String ingredients) {
         this.label = label;
         this.brand = brand;
         this.name  = name;
-        this.ingredient = ingredient;
+        this.ingredients = ingredients;
         this.price = price;
         this.rank = rank;
     }
@@ -35,15 +35,31 @@ public class Product {
         return name;
     }
 
-    public int getPrice(){
-        return price;
-    }
+    public Integer getPrice() { return price;}
 
     public double getRank(){
         return rank;
     }
 
-    public ArrayList<String> getIngredient(){
-        return ingredient;
+    public String getIngredients(){
+        return ingredients;
+    }
+
+    public void setLabel(String label) { this.label = label; }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setRank(double rank) {
+        this.rank = rank;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 }

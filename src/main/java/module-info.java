@@ -1,6 +1,7 @@
 module com.betterskincare2 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.betterskincare2 to javafx.fxml;

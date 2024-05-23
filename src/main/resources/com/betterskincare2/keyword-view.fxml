@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.KeywordController">
+   <children>
+      <TableView fx:id="tableProduct1" layoutY="33.0" prefHeight="600.0" prefWidth="1080.0">
+        <columns>
+          <TableColumn fx:id="labelCol" prefWidth="182.0" text="Label" />
+          <TableColumn fx:id="brandCol" prefWidth="212.0" text="Brand" />
+            <TableColumn fx:id="nameCol" prefWidth="185.0" text="Name" />
+            <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="102.0" text="Price" />
+            <TableColumn fx:id="rankCol" prefWidth="107.0" text="Rank" />
+            <TableColumn fx:id="ingredCol" prefWidth="291.0" text="Ingredients" />
+        </columns>
+      </TableView>
+      <TextField fx:id="keyword" layoutX="58.0" layoutY="2.0" prefHeight="30.0" prefWidth="864.0" promptText="Type your keyword">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="14.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/skincare2.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="941.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="25.0" prefWidth="105.0" text="Return home" />
+   </children>
+</AnchorPane>
