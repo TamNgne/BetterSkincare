@@ -3,6 +3,7 @@ package com.betterskincare2;
 import java.util.ArrayList;
 
 public class Product {
+    private  Integer id;
     private String label;
     private String brand;
     private String name;
@@ -14,7 +15,8 @@ public class Product {
 //    private int normal;
 //    private int oily;
 //    private int sensitive;
-    public Product(String label, String brand, String name, int price, double rank, String ingredients) {
+    public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients) {
+        this.id = id;
         this.label = label;
         this.brand = brand;
         this.name  = name;
@@ -40,12 +42,16 @@ public class Product {
     public double getRank(){
         return rank;
     }
+    public Integer getId() {return id;}
 
     public String getIngredients(){
         return ingredients;
     }
 
+    public void setId(Integer id) {  this.id = id; }
     public void setLabel(String label) { this.label = label; }
+
+    public void setBrand(String brand) { this.brand = brand; }
 
     public void setName(String name) {
         this.name = name;
