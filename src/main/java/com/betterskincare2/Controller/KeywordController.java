@@ -87,8 +87,6 @@ public class KeywordController extends MainController implements Initializable {
         rankCol.setCellValueFactory(new PropertyValueFactory<>("rank"));
         ingredCol.setCellValueFactory(new PropertyValueFactory<>("ingredients"));
 
-
-
         tableProduct1.setItems(productObservableList);
     }
 
