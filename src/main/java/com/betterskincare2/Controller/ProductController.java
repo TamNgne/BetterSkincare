@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProductController extends MainController implements Initializable {
@@ -51,7 +52,7 @@ public class ProductController extends MainController implements Initializable {
         tableChart.setItems(productObservableList);
     }
 
-    public void filterProduct(String rankRange, String priceRange, String brand, String type) {
+    public void filterProduct(String rankRange, String priceRange, String brand, String type, List<String> selectedSkintypes) {
         HashMap<Integer, Product> productMap = loadProduct();
         productObservableList.clear();
 
@@ -60,6 +61,7 @@ public class ProductController extends MainController implements Initializable {
             boolean priceMatches = false;
             boolean brandMatches = false;
             boolean typeMatches = false;
+            boolean skintypeMatches = false;
 
             double rank = product.getRank();
             int price = product.getPrice();
@@ -131,8 +133,34 @@ public class ProductController extends MainController implements Initializable {
             else
                 brandMatches = productBrand.equalsIgnoreCase(brand);
 
+            // Filter by skin type
+            if (selectedSkintypes.isEmpty()) {
+                // If no skin types are selected, consider it a match
+                skintypeMatches = true;
+            } else {
+                // If any of the selected skin types match, consider it a match
+                for (String skinType : selectedSkintypes) {
+                    switch (skinType) {
+                        case "Combination":
+                            skintypeMatches |= product.isCombination();
+                            break;
+                        case "Normal":
+                            skintypeMatches |= product.isNormal();
+                            break;
+                        case "Dry":
+                            skintypeMatches |= product.isDry();
+                            break;
+                        case "Oily":
+                            skintypeMatches |= product.isOily();
+                            break;
+                        case "Sensitive":
+                            skintypeMatches |= product.isSensitive();
+                            break;
+                    }
+                }
+            }
             //FilteredProduct
-            if (rankMatches && priceMatches && typeMatches && brandMatches)
+            if (rankMatches && priceMatches && typeMatches && brandMatches && skintypeMatches)
                 productObservableList.add(product);
         }
     }

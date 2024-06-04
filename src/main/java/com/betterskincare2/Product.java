@@ -10,12 +10,15 @@ public class Product {
     private Integer price;
     private double rank;
     private String ingredients;
-//    private int combination;
-//    private int dry;
-//    private int normal;
-//    private int oily;
-//    private int sensitive;
-    public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients) {
+
+//skin type
+    private boolean combination;
+    private boolean dry;
+    private boolean normal;
+    private boolean oily;
+    private boolean sensitive;
+
+    public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients, boolean combination, boolean dry, boolean normal, boolean oily, boolean sensitive) {
         this.id = id;
         this.label = label;
         this.brand = brand;
@@ -23,6 +26,11 @@ public class Product {
         this.ingredients = ingredients;
         this.price = price;
         this.rank = rank;
+        this.combination = combination;
+        this.dry = dry;
+        this.normal = normal;
+        this.oily = oily;
+        this.sensitive = sensitive;
     }
 
     public String getLabel(){
@@ -43,6 +51,16 @@ public class Product {
         return rank;
     }
     public Integer getId() {return id;}
+
+    public boolean isCombination() {return combination;}
+
+    public boolean isDry() {return dry;}
+
+    public boolean isNormal() {return normal;}
+
+    public boolean isOily() {return oily;}
+
+    public boolean isSensitive() {return sensitive;}
 
     public String getIngredients(){
         return ingredients;
@@ -68,4 +86,14 @@ public class Product {
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
+
+    public void setCombination(boolean combination) {this.combination = combination;}
+
+    public void setDry(boolean dry) {this.dry = dry;}
+
+    public void setNormal(boolean normal) {this.normal = normal;}
+
+    public void setOily(boolean oily) {this.oily = oily;}
+
+    public void setSensitive(boolean sensitive) {this.sensitive = sensitive; }
 }

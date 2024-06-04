@@ -8,12 +8,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.jar.Attributes;
 
@@ -30,6 +35,9 @@ public class CategoryController extends MainController {
 
     @FXML
     private ChoiceBox<String> Pricecb;
+
+    @FXML
+    private ListView<CheckBox> Skintypelv;
 
     private Stage stage;
     private Scene scene;
@@ -86,6 +94,18 @@ public class CategoryController extends MainController {
         );
         Brandcb.setItems(brands);
         Brandcb.setValue("None"); // default value
+
+        skintypeListView();
+    }
+    private void skintypeListView() {
+        ObservableList<CheckBox> skintype = FXCollections.observableArrayList();
+        String[] skinTypes = {"Combination", "Dry", "Normal", "Oily", "Sensitive"};
+
+        for (String type : skinTypes) {
+            CheckBox checkBox = new CheckBox(type);
+            skintype.add(checkBox);
+        }
+        Skintypelv.setItems(skintype);
     }
 
     @FXML
@@ -95,15 +115,26 @@ public class CategoryController extends MainController {
         String selectedBrand = Brandcb.getValue();
         String selectedType = Typecb.getValue();
 
+        // Get selected skin types
+        ObservableList<CheckBox> selectedSkinTypes = Skintypelv.getSelectionModel().getSelectedItems();
+        List<String> selectedSkinTypeNames = new ArrayList<>();
+        for (CheckBox checkBox : selectedSkinTypes) {
+            selectedSkinTypeNames.add(checkBox.getText());
+        }
+
         // Pass the selected choices to the ProductController
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/betterskincare2/product-view.fxml"));
         Parent root = loader.load();
 
         ProductController productController = loader.getController();
-        productController.filterProduct(selectedRank, selectedPrice, selectedBrand, selectedType);
+        productController.filterProduct(selectedRank, selectedPrice, selectedBrand, selectedType, selectedSkinTypeNames);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        // Set the stage to full screen
+        stage.setFullScreen(true);
+
         stage.setScene(scene);
         stage.show();
     }

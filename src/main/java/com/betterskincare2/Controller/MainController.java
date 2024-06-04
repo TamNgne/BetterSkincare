@@ -34,7 +34,7 @@ public class MainController {
      public HashMap<Integer, Product> loadProduct() {
          productMap = new HashMap<>();
          Connection connect = connectDb();
-         String query = "SELECT c.ProductID, c.Label, c.Brand, c.Name, c.Price, c.Rank, c.Ingredients FROM cosmetic c ";
+         String query = "SELECT * FROM cosmetic c ";
          if (connect != null) {
              try {
 
@@ -50,7 +50,14 @@ public class MainController {
                      Double rank = resultSet.getDouble("Rank");
                      String ingred = resultSet.getString("Ingredients");
 
-                     Product product = new Product(id, label, brand, name, price, rank, ingred);
+                     // Get skin type attributes and convert to boolean
+                     boolean combination = resultSet.getInt("Combination") == 1;
+                     boolean dry = resultSet.getInt("Dry") == 1;
+                     boolean normal = resultSet.getInt("Normal") == 1;
+                     boolean oily = resultSet.getInt("Oily") == 1;
+                     boolean sensitive = resultSet.getInt("Sensitive") == 1;
+
+                     Product product = new Product(id, label, brand, name, price, rank, ingred, combination, dry, normal, oily, sensitive);
 
                      productMap.put(id, product);
                  }
