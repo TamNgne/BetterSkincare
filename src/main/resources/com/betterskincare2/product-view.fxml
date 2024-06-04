@@ -7,21 +7,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.ProductController">
+<AnchorPane prefHeight="704.0" prefWidth="1374.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.ProductController">
     <children>
-      <Button layoutX="1020.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToHome" text="Return" textFill="#d8ae7e">
+      <Button layoutX="1208.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="24.0" prefWidth="141.0" text="Return Home" textFill="#d8ae7e">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-        <TableView fx:id="tableChart" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+        <TableView fx:id="tableChart" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="1395.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <columns>
                 <TableColumn fx:id="label" prefWidth="154.0" text="Label" />
                 <TableColumn fx:id="brand" prefWidth="221.0" text="Brand" />
                 <TableColumn fx:id="name" prefWidth="186.0" text="Name" />
-                <TableColumn fx:id="price" minWidth="0.0" prefWidth="71.0" text="Price" />
-                <TableColumn fx:id="rank" minWidth="0.0" prefWidth="62.0" text="Rank" />
-                <TableColumn fx:id="ingredients" prefWidth="410.0" text="Ingredients" />
+                <TableColumn fx:id="price" minWidth="0.0" prefWidth="79.0" text="Price" />
+                <TableColumn fx:id="rank" minWidth="0.0" prefWidth="85.0" text="Rank" />
+                <TableColumn fx:id="ingredients" prefWidth="395.0" text="Ingredients" />
             </columns>
         </TableView>
       <Text fill="#d8ae7e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are the preferable products for you!" wrappingWidth="615.939453125">

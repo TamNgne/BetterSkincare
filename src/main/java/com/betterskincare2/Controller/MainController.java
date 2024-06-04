@@ -84,16 +84,17 @@ public class MainController {
         scene = new Scene(root);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
-    public void switchToProduct(ActionEvent actionEvent) throws  Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/product-view.fxml"));
-        scene = new Scene(root);
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void switchToProduct(ActionEvent actionEvent) throws  Exception{
+//        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/product-view.fxml"));
+//        scene = new Scene(root);
+//        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
     public void switchToHome(ActionEvent actionEvent) throws  Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/hello-view.fxml"));
         scene = new Scene(root);

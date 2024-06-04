@@ -131,11 +131,8 @@ public class CategoryController extends MainController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-
-        // Set the stage to full screen
-        stage.setFullScreen(true);
-
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 }
