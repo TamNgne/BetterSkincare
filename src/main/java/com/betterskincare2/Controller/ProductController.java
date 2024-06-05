@@ -20,34 +20,38 @@ public class ProductController extends MainController implements Initializable {
     private TableView<Product> tableChart;
 
     @FXML
-    private TableColumn<Product, String> label;
+    private TableColumn<Product, String> labelCol;
 
     @FXML
-    private TableColumn<Product, String> brand;
+    private TableColumn<Product, String> brandCol;
 
     @FXML
-    private TableColumn<Product, String> name;
+    private TableColumn<Product, String> nameCol;
 
     @FXML
-    private TableColumn<Product, Integer> price;
+    private TableColumn<Product, Integer> priceCol;
 
     @FXML
-    private TableColumn<Product, Double> rank;
+    private TableColumn<Product, Double> rankCol;
 
     @FXML
-    private TableColumn<Product, String> ingredients;
+    private TableColumn<Product, String> ingredientsCol;
+
+    @FXML
+    private TableColumn<Product, String> skintypeMatchedCol;
 
     private ObservableList<Product> productObservableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         // Initialize table columns
-        label.setCellValueFactory(new PropertyValueFactory<>("label"));
-        brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        price.setCellValueFactory(new PropertyValueFactory<>("price"));
-        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
-        ingredients.setCellValueFactory(new PropertyValueFactory<>("ingredients"));
+        labelCol.setCellValueFactory(new PropertyValueFactory<>("label"));
+        brandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        rankCol.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        ingredientsCol.setCellValueFactory(new PropertyValueFactory<>("ingredients"));
+        skintypeMatchedCol.setCellValueFactory(new PropertyValueFactory<>("skintypesMatchedString"));
 
         tableChart.setItems(productObservableList);
     }
@@ -67,6 +71,7 @@ public class ProductController extends MainController implements Initializable {
             int price = product.getPrice();
             String productBrand = product.getBrand();
             String productType = product.getLabel();
+
 
             // Filter by rank
 
@@ -159,6 +164,16 @@ public class ProductController extends MainController implements Initializable {
                     }
                 }
             }
+
+//            // Filter by skin type
+            if (selectedSkintypes.isEmpty()) {
+                skintypeMatches = true;
+            } else {
+                List<String> productSkinTypes = product.getSkinTypesMatched();
+                skintypeMatches = selectedSkintypes.stream().allMatch(productSkinTypes::contains);
+            }
+
+
             //FilteredProduct
             if (rankMatches && priceMatches && typeMatches && brandMatches && skintypeMatches)
                 productObservableList.add(product);

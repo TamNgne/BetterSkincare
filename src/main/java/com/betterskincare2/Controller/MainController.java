@@ -12,7 +12,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainController {
     private Stage stage;
@@ -57,7 +59,27 @@ public class MainController {
                      boolean oily = resultSet.getInt("Oily") == 1;
                      boolean sensitive = resultSet.getInt("Sensitive") == 1;
 
-                     Product product = new Product(id, label, brand, name, price, rank, ingred, combination, dry, normal, oily, sensitive);
+                     // Determine which skin types match and add them to the skinTypesMatchedList
+                     List<String> skinTypesMatchedList = new ArrayList<>();
+                     if (combination) {
+                         skinTypesMatchedList.add("Combination");
+                     }
+                     if (normal) {
+                         skinTypesMatchedList.add("Normal");
+                     }
+                     if (dry) {
+                         skinTypesMatchedList.add("Dry");
+                     }
+                     if (oily) {
+                         skinTypesMatchedList.add("Oily");
+                     }
+                     if (sensitive) {
+                         skinTypesMatchedList.add("Sensitive");
+                     }
+
+                     // Create Product object
+
+                     Product product = new Product(id, label, brand, name, price, rank, ingred, combination, dry, normal, oily, sensitive,  skinTypesMatchedList);
 
                      productMap.put(id, product);
                  }

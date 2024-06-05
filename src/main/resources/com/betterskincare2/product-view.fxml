@@ -16,12 +16,13 @@
       </Button>
         <TableView fx:id="tableChart" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="1395.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <columns>
-                <TableColumn fx:id="label" prefWidth="154.0" text="Label" />
-                <TableColumn fx:id="brand" prefWidth="221.0" text="Brand" />
-                <TableColumn fx:id="name" prefWidth="186.0" text="Name" />
-                <TableColumn fx:id="price" minWidth="0.0" prefWidth="79.0" text="Price" />
-                <TableColumn fx:id="rank" minWidth="0.0" prefWidth="85.0" text="Rank" />
-                <TableColumn fx:id="ingredients" prefWidth="395.0" text="Ingredients" />
+                <TableColumn fx:id="labelCol" prefWidth="154.0" text="Label" />
+                <TableColumn fx:id="brandCol" prefWidth="221.0" text="Brand" />
+                <TableColumn fx:id="nameCol" prefWidth="186.0" text="Name" />
+                <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="79.0" text="Price" />
+                <TableColumn fx:id="rankCol" minWidth="0.0" prefWidth="85.0" text="Rank" />
+                <TableColumn fx:id="ingredientsCol" prefWidth="362.0" text="Ingredients" />
+            <TableColumn fx:id="skintypeMatchedCol" prefWidth="307.0" text="Skin Type Matches" />
             </columns>
         </TableView>
       <Text fill="#d8ae7e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are the preferable products for you!" wrappingWidth="615.939453125">

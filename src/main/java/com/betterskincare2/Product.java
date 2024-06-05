@@ -1,6 +1,7 @@
 package com.betterskincare2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
     private  Integer id;
@@ -18,7 +19,9 @@ public class Product {
     private boolean oily;
     private boolean sensitive;
 
-    public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients, boolean combination, boolean dry, boolean normal, boolean oily, boolean sensitive) {
+//Skintype matched
+    private List<String> skintypesMatched;
+    public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients, boolean combination, boolean dry, boolean normal, boolean oily, boolean sensitive, List<String> skintypesMatched) {
         this.id = id;
         this.label = label;
         this.brand = brand;
@@ -31,6 +34,7 @@ public class Product {
         this.normal = normal;
         this.oily = oily;
         this.sensitive = sensitive;
+        this.skintypesMatched = skintypesMatched;
     }
 
     public String getLabel(){
@@ -62,9 +66,9 @@ public class Product {
 
     public boolean isSensitive() {return sensitive;}
 
-    public String getIngredients(){
-        return ingredients;
-    }
+    public String getIngredients(){return ingredients;}
+    public String getSkintypesMatchedString() {return String.join(", ", skintypesMatched);}
+    public List<String> getSkintypesMatched() {return skintypesMatched;}
 
     public void setId(Integer id) {  this.id = id; }
     public void setLabel(String label) { this.label = label; }
@@ -96,4 +100,5 @@ public class Product {
     public void setOily(boolean oily) {this.oily = oily;}
 
     public void setSensitive(boolean sensitive) {this.sensitive = sensitive; }
+    public List<String> getSkinTypesMatched() {return skintypesMatched;}
 }
