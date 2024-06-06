@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare2.Controller.CategoryController">
+<AnchorPane prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.betterskincare.Controller.CategoryController">
     <children>
         <Text fill="#f8c794" layoutX="27.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="188.1357421875">
             <font>
@@ -49,5 +49,10 @@
          </font>
       </Text>
       <ListView fx:id="Skintypelv" layoutX="293.0" layoutY="298.0" prefHeight="117.0" prefWidth="236.0" />
+      <Button layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#switchToHome" text="Return" textFill="#f8c794">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

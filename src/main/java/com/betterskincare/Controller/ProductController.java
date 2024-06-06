@@ -1,6 +1,6 @@
-package com.betterskincare2.Controller;
+package com.betterskincare.Controller;
 
-import com.betterskincare2.Product;
+import com.betterskincare.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

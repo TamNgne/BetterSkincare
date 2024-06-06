@@ -1,28 +1,20 @@
-package com.betterskincare2.Controller;
+package com.betterskincare.Controller;
 
-import com.betterskincare2.Product;
+import com.betterskincare.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 
 import java.net.URL;
-import java.sql.Connection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -98,19 +90,26 @@ public class KeywordController extends MainController implements Initializable {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-                String searchKeyword = newValue.toLowerCase();
-                return product.getName().toLowerCase().contains(searchKeyword)
-                        || product.getIngredients().toLowerCase().contains(searchKeyword)
-                        || product.getBrand().toLowerCase().contains(searchKeyword)
-                        || product.getLabel().toLowerCase().contains(searchKeyword)
-                        || product.getPrice().toString().contains(searchKeyword)
-                        || Double.toString(product.getRank()).contains(searchKeyword);
+                String[] searchKeywords = newValue.toLowerCase().split("\\s+");
+
+                for (String searchKeyword : searchKeywords) {
+                    boolean matches = product.getName().toLowerCase().contains(searchKeyword)
+                            || product.getIngredients().toLowerCase().contains(searchKeyword)
+                            || product.getBrand().toLowerCase().contains(searchKeyword)
+                            || product.getLabel().toLowerCase().contains(searchKeyword)
+                            || product.getPrice().toString().contains(searchKeyword)
+                            || Double.toString(product.getRank()).contains(searchKeyword);
+                    if (!matches) {
+                        return false;
+                    }
+                }
+                return true;
             });
         });
-
 
         SortedList<Product> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tableProduct1.comparatorProperty());
         tableProduct1.setItems(sortedData);
     }
+
 }

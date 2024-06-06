@@ -1,4 +1,4 @@
-package com.betterskincare2;
+package com.betterskincare;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

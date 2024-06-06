@@ -4,8 +4,8 @@ module com.betterskincare2 {
     requires java.sql;
 
 
-    opens com.betterskincare2 to javafx.fxml;
-    exports com.betterskincare2;
-    exports com.betterskincare2.Controller;
-    opens com.betterskincare2.Controller to javafx.fxml;
+    opens com.betterskincare to javafx.fxml;
+    exports com.betterskincare;
+    exports com.betterskincare.Controller;
+    opens com.betterskincare.Controller to javafx.fxml;
 }

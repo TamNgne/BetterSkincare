@@ -1,7 +1,6 @@
-package com.betterskincare2.Controller;
+package com.betterskincare.Controller;
 
 import javafx.collections.FXCollections;
-import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -10,17 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.jar.Attributes;
 
 public class CategoryController extends MainController {
 
@@ -123,7 +118,7 @@ public class CategoryController extends MainController {
         }
 
         // Pass the selected choices to the ProductController
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/betterskincare2/product-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/betterskincare/product-view.fxml"));
         Parent root = loader.load();
 
         ProductController productController = loader.getController();

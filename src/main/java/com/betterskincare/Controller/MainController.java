@@ -1,11 +1,13 @@
-package com.betterskincare2.Controller;
+package com.betterskincare.Controller;
 
-import com.betterskincare2.Product;
+import com.betterskincare.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -94,7 +96,7 @@ public class MainController {
 
     //change scenes
     public void switchToCategory(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/category-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare/category-view.fxml"));
         scene = new Scene(root);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -102,7 +104,7 @@ public class MainController {
     }
 
     public void switchToKeyword(ActionEvent actionEvent) throws  Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/keyword-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare/keyword-view.fxml"));
         scene = new Scene(root);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -110,20 +112,21 @@ public class MainController {
         stage.show();
     }
 
-//    public void switchToProduct(ActionEvent actionEvent) throws  Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/product-view.fxml"));
-//        scene = new Scene(root);
-//        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
     public void switchToHome(ActionEvent actionEvent) throws  Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare2/hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/betterskincare/hello-view.fxml"));
         scene = new Scene(root);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+        // Center the stage on the screen
+        centerStage(stage);
     }
 
+    private void centerStage(Stage stage) {
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
+    }
 
 }
