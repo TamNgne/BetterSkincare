@@ -3,23 +3,23 @@ package com.betterskincare;
 import java.util.List;
 
 public class Product {
-    private  Integer id;
-    private String label;
-    private String brand;
-    private String name;
-    private Integer price;
-    private double rank;
-    private String ingredients;
+    private final Integer id;
+    private final String label;
+    private final String brand;
+    private final String name;
+    private final Integer price;
+    private final double rank;
+    private final String ingredients;
 
 //skin type
-    private boolean combination;
-    private boolean dry;
-    private boolean normal;
-    private boolean oily;
-    private boolean sensitive;
+    private final boolean combination;
+    private final boolean dry;
+    private final boolean normal;
+    private final boolean oily;
+    private final boolean sensitive;
 
 //Skintype matched
-    private List<String> skintypesMatched;
+    private final List<String> skintypesMatched;
     public Product(Integer id, String label, String brand, String name, int price, double rank, String ingredients, boolean combination, boolean dry, boolean normal, boolean oily, boolean sensitive, List<String> skintypesMatched) {
         this.id = id;
         this.label = label;
@@ -66,38 +66,6 @@ public class Product {
     public boolean isSensitive() {return sensitive;}
 
     public String getIngredients(){return ingredients;}
-    public String getSkintypesMatchedString() {return String.join(", ", skintypesMatched);}
-    public List<String> getSkintypesMatched() {return skintypesMatched;}
 
-    public void setId(Integer id) {  this.id = id; }
-    public void setLabel(String label) { this.label = label; }
-
-    public void setBrand(String brand) { this.brand = brand; }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setRank(double rank) {
-        this.rank = rank;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public void setCombination(boolean combination) {this.combination = combination;}
-
-    public void setDry(boolean dry) {this.dry = dry;}
-
-    public void setNormal(boolean normal) {this.normal = normal;}
-
-    public void setOily(boolean oily) {this.oily = oily;}
-
-    public void setSensitive(boolean sensitive) {this.sensitive = sensitive; }
     public List<String> getSkinTypesMatched() {return skintypesMatched;}
 }

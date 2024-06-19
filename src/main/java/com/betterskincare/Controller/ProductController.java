@@ -57,126 +57,125 @@ public class ProductController extends MainController implements Initializable {
     }
 
     public void filterProduct(String rankRange, String priceRange, String brand, String type, List<String> selectedSkintypes) {
-        HashMap<Integer, Product> productMap = loadProduct();
-        productObservableList.clear();
+            HashMap<Integer, Product> productMap = loadProduct();
+            productObservableList.clear();
 
-        for (Product product : productMap.values()) {
-            boolean rankMatches = false;
-            boolean priceMatches = false;
-            boolean brandMatches = false;
-            boolean typeMatches = false;
-            boolean skintypeMatches = false;
+            for (Product product : productMap.values()) {
+                boolean rankMatches = false;
+                boolean priceMatches = false;
+                boolean brandMatches = false;
+                boolean typeMatches = false;
+                boolean skintypeMatches = false;
 
-            double rank = product.getRank();
-            int price = product.getPrice();
-            String productBrand = product.getBrand();
-            String productType = product.getLabel();
+                double rank = product.getRank();
+                int price = product.getPrice();
+                String productBrand = product.getBrand();
+                String productType = product.getLabel();
 
 
-            // Filter by rank
-
-            switch (rankRange) {
-                case "Under 2":
-                    rankMatches = rank < 2;
-                    break;
-                case "2 to 3":
-                    rankMatches = rank >= 2 && rank < 3;
-                    break;
-                case "3 to 4":
-                    rankMatches = rank >= 3 && rank < 4;
-                    break;
-                case "4 to 5":
-                    rankMatches = rank >= 4 && rank <= 5;
-                    break;
-            }
-
-            // Filter by price
-            switch (priceRange) {
-                case "Under 50$":
-                    priceMatches = price < 50;
-                    break;
-                case "50$ to 100$":
-                    priceMatches = price >= 50 && price < 100;
-                    break;
-                case  "100$ to 150$":
-                    priceMatches = price >= 100 && price < 150;
-                    break;
-                case "150$ to 200$":
-                    priceMatches = price >= 150 && price < 200;
-                    break;
-                case "Above 200$":
-                    priceMatches = price > 200;
-                    break;
-            }
-
-            //Filter by Type
-            if (type.equals("None"))
-                typeMatches = true;
-            else {
-                switch (type) {
-                    case "Moisturizer":
-                        typeMatches = productType.equals("Moisturizer");
+                // Filter by rank
+                switch (rankRange) {
+                    case "Under 2":
+                        rankMatches = rank < 2;
                         break;
-                    case "Cleanser":
-                        typeMatches = productType.equals("Cleanser");
+                    case "2 to 3":
+                        rankMatches = rank >= 2 && rank < 3;
                         break;
-                    case "Treatment":
-                        typeMatches = productType.equals("Treatment");
+                    case "3 to 4":
+                        rankMatches = rank >= 3 && rank < 4;
                         break;
-                    case "Face Mask":
-                        typeMatches = productType.equals("Face Mask");
-                        break;
-                    case "Eye cream":
-                        typeMatches = productType.equals("Eye cream");
+                    case "4 to 5":
+                        rankMatches = rank >= 4 && rank <= 5;
                         break;
                 }
-            }
 
-            //Filter by brand
-            if (brand.equals("None"))
-                brandMatches = true;
-            else
-                brandMatches = productBrand.equalsIgnoreCase(brand);
+                // Filter by price
+                switch (priceRange) {
+                    case "Under 50$":
+                        priceMatches = price < 50;
+                        break;
+                    case "50$ to 100$":
+                        priceMatches = price >= 50 && price < 100;
+                        break;
+                    case  "100$ to 150$":
+                        priceMatches = price >= 100 && price < 150;
+                        break;
+                    case "150$ to 200$":
+                        priceMatches = price >= 150 && price < 200;
+                        break;
+                    case "Above 200$":
+                        priceMatches = price > 200;
+                        break;
+                }
 
-            // Filter by skin type
-            if (selectedSkintypes.isEmpty()) {
-                // If no skin types are selected, consider it a match
-                skintypeMatches = true;
-            } else {
-                // If any of the selected skin types match, consider it a match
-                for (String skinType : selectedSkintypes) {
-                    switch (skinType) {
-                        case "Combination":
-                            skintypeMatches |= product.isCombination();
+                //Filter by Type
+                if (type.equals("None"))
+                    typeMatches = true;
+                else {
+                    switch (type) {
+                        case "Moisturizer":
+                            typeMatches = productType.equals("Moisturizer");
                             break;
-                        case "Normal":
-                            skintypeMatches |= product.isNormal();
+                        case "Cleanser":
+                            typeMatches = productType.equals("Cleanser");
                             break;
-                        case "Dry":
-                            skintypeMatches |= product.isDry();
+                        case "Treatment":
+                            typeMatches = productType.equals("Treatment");
                             break;
-                        case "Oily":
-                            skintypeMatches |= product.isOily();
+                        case "Face Mask":
+                            typeMatches = productType.equals("Face Mask");
                             break;
-                        case "Sensitive":
-                            skintypeMatches |= product.isSensitive();
+                        case "Eye cream":
+                            typeMatches = productType.equals("Eye cream");
                             break;
                     }
                 }
+
+                //Filter by brand
+                if (brand.equals("None"))
+                    brandMatches = true;
+                else
+                    brandMatches = productBrand.equalsIgnoreCase(brand);
+
+                // Filter by skin type
+                if (selectedSkintypes.isEmpty()) {
+                    // If no skin types are selected, consider it a match
+                    skintypeMatches = true;
+                } else {
+                    // If any of the selected skin types match, consider it a match
+                    for (String skinType : selectedSkintypes) {
+                        switch (skinType) {
+                            case "Combination":
+                                skintypeMatches |= product.isCombination();
+                                break;
+                            case "Normal":
+                                skintypeMatches |= product.isNormal();
+                                break;
+                            case "Dry":
+                                skintypeMatches |= product.isDry();
+                                break;
+                            case "Oily":
+                                skintypeMatches |= product.isOily();
+                                break;
+                            case "Sensitive":
+                                skintypeMatches |= product.isSensitive();
+                                break;
+                        }
+                    }
+                }
+
+//            //After selecting skin type, I store them in a list to display in table
+                if (selectedSkintypes.isEmpty()) {
+                    skintypeMatches = true;
+                } else {
+                    List<String> productSkinTypes = product.getSkinTypesMatched();
+                    skintypeMatches = selectedSkintypes.stream().allMatch(productSkinTypes::contains);
+                }
+
+
+                //FilteredProduct
+                if (rankMatches && priceMatches && typeMatches && brandMatches && skintypeMatches)
+                    productObservableList.add(product);
             }
-
-//            // Filter by skin type
-            if (selectedSkintypes.isEmpty()) {
-                skintypeMatches = true;
-            } else {
-                List<String> productSkinTypes = product.getSkinTypesMatched();
-                skintypeMatches = selectedSkintypes.stream().allMatch(productSkinTypes::contains);
-            }
-
-
-            //FilteredProduct
-            if (rankMatches && priceMatches && typeMatches && brandMatches && skintypeMatches)
-                productObservableList.add(product);
-        }
     }
 }

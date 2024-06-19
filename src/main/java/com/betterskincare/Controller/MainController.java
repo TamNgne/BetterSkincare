@@ -81,7 +81,8 @@ public class MainController {
 
                      // Create Product object
 
-                     Product product = new Product(id, label, brand, name, price, rank, ingred, combination, dry, normal, oily, sensitive,  skinTypesMatchedList);
+                     Product product = new Product(id, label, brand, name, price, rank, ingred, combination,
+                                                    dry, normal, oily, sensitive,  skinTypesMatchedList);
 
                      productMap.put(id, product);
                  }
